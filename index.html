@@ -4,191 +4,461 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gajanan Yuvak Mandal | Ganesh Mahotsav 2026</title>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
             --primary: #d9381e;
+            --primary-hover: #b82a12;
             --secondary: #ff9933;
-            --dark: #222222;
+            --accent: #ffd700;
+            --dark: #1a1a1a;
+            --card-bg: #ffffff;
             --light: #fdfbf7;
+            --text-main: #222222;
+            --text-muted: #555555;
+            --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 25px rgba(217, 56, 30, 0.12);
+            --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.15);
+            --radius-lg: 16px;
+            --radius-md: 10px;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--light);
-            color: var(--dark);
+            color: var(--text-main);
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
+
+        /* Header & Hero Area */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary) 0%, #e65c00 50%, var(--secondary) 100%);
             color: white;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1.5rem 3.5rem 1.5rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            background-size: 200% 200%;
+            animation: gradientBg 12s ease infinite;
         }
+
+        @keyframes gradientBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .header-content {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 2rem;
             flex-wrap: wrap;
-            text-align: center;
         }
+
         .logo {
             width: 110px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
         }
-        .header-text h1 {
-            margin: 0;
-            font-size: 2.2rem;
+
+        .logo:hover {
+            transform: scale(1.05) rotate(3deg);
         }
-        .header-text p {
-            font-size: 1.2rem;
-            margin-top: 0.3rem;
-            margin-bottom: 0;
+
+        .header-text {
+            flex: 1;
+            min-width: 280px;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
-        }
+
         .tag {
-            background-color: #fff3e0;
-            color: var(--primary);
-            font-weight: bold;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
             display: inline-block;
             margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+
+        .header-text h1 {
+            font-family: 'Rozha One', serif;
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .header-text p {
+            font-size: 1.35rem;
+            margin-top: 0.4rem;
+            font-weight: 600;
+            color: #fff3e0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 950px;
+            margin: -1.5rem auto 2rem auto;
+            padding: 0 1.25rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* Card System */
+        .card {
+            background: var(--card-bg);
+            padding: 2.2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 2px solid #fff0eb;
+            padding-bottom: 0.6rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Event Details */
         .event-details {
             list-style: none;
             padding: 0;
+            margin: 1.5rem 0;
+            display: grid;
+            gap: 1rem;
         }
+
         .event-details li {
             font-size: 1.1rem;
-            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #fff8f5;
+            padding: 0.9rem 1.2rem;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary);
         }
+
+        .event-details i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
         .contacts {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
         }
+
         .contact-box {
             background: #f9f9f9;
-            padding: 0.8rem 1.2rem;
-            border-radius: 8px;
+            padding: 0.9rem 1.4rem;
+            border-radius: var(--radius-md);
             border-left: 4px solid var(--secondary);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex: 1;
+            min-width: 220px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .contact-box strong {
+            color: var(--dark);
+        }
+
+        .contact-box a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Google Drive Links Buttons */
+        .album-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .album-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1.1rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 12px rgba(217, 56, 30, 0.25);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .album-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .album-btn:hover::before {
+            left: 100%;
+        }
+
+        .album-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(217, 56, 30, 0.35);
+            color: white;
+        }
+
+        .album-btn i {
+            font-size: 1.3rem;
         }
 
         /* Gallery Grid Styles */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            gap: 16px;
             margin-top: 1.5rem;
         }
+
         .gallery-item {
+            position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             cursor: pointer;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item img:hover {
-            transform: scale(1.05);
+            background-color: #eee;
+            aspect-ratio: 4 / 3;
         }
 
-        /* Google Drive Albums Styles */
-        .album-buttons {
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.2rem;
-        }
-        .album-btn {
-            display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
             color: white;
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 1.8rem;
         }
-        .album-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
         }
 
         /* Lightbox Overlay Styles */
         .lightbox {
             display: none;
             position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
+            z-index: 9999;
+            inset: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
             justify-content: center;
             align-items: center;
-        }
-        .lightbox-img {
-            max-width: 90%;
-            max-height: 85%;
-            border-radius: 8px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            user-select: none;
+            padding: 1.5rem;
+            animation: fadeIn 0.25s ease forwards;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            object-fit: contain;
+        }
+
+        .lightbox-caption {
+            color: #ffffff;
+            margin-top: 1rem;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            transition: background 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem;
             background-color: var(--dark);
             color: white;
-            margin-top: 2rem;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            color: #dddddd;
+        }
+
+        footer p.blessing {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+
+            .header-text h1 {
+                font-size: 2.1rem;
+            }
+
+            .header-text p {
+                font-size: 1.15rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .album-buttons {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="header-content">
-            <img src="logo.png" alt="Gajanan Yuvak Mandal Logo" class="logo">
+            <img src="logo.png" alt="Gajanan Yuvak Mandal Logo" class="logo" onerror="this.src='https://placehold.co/110x110/d9381e/ffffff?text=GYM+Logo'">
             <div class="header-text">
                 <div class="tag">👑 London Cha Raja 👑</div>
                 <h1>Gajanan Yuvak Mandal</h1>
                 <p>Ganesh Mahotsav 2026</p>
             </div>
-            <img src="logo.png" alt="Gajanan Yuvak Mandal Logo" class="logo">
+            <img src="logo.png" alt="Gajanan Yuvak Mandal Logo" class="logo" onerror="this.src='https://placehold.co/110x110/d9381e/ffffff?text=GYM+Logo'">
         </div>
     </header>
 
@@ -196,92 +466,138 @@
         
         <!-- Welcome & Event Info -->
         <div class="card">
-            <h2>Ganesh Mahotsav 2026</h2>
+            <h2><i class="fa-solid fa-om"></i> Ganesh Mahotsav 2026</h2>
             <p>Gajanan Yuvak Mandal warmly invites you and your family to celebrate Ganesh Mahotsav 2026 with devotion, unity, and joy. Come and seek the blessings of Bappa with us! 🙏🏽</p>
             
             <ul class="event-details">
-                <li>📅 <strong>Date:</strong> 14–25 September 2026</li>
-                <li>🕖 <strong>Time:</strong> Starting from 7:00 PM daily</li>
-                <li>📍 <strong>Venue:</strong> Ramgharia Community Centre, 231 Plashet Road, London E13 0QU</li>
+                <li><i class="fa-regular fa-calendar-days"></i> <strong>Date:</strong> 14–25 September 2026</li>
+                <li><i class="fa-regular fa-clock"></i> <strong>Time:</strong> Starting from 7:00 PM daily</li>
+                <li><i class="fa-solid fa-location-dot"></i> <strong>Venue:</strong> Ramgharia Community Centre, 231 Plashet Road, London E13 0QU</li>
             </ul>
 
-            <h3>For More Information</h3>
+            <h3 style="margin-top: 1.5rem; font-size: 1.2rem; color: var(--dark);">For More Information</h3>
             <div class="contacts">
-                <div class="contact-box"><strong>Alpa:</strong> 07404 155862</div>
-                <div class="contact-box"><strong>Harisha:</strong> 07413 877007</div>
+                <div class="contact-box">
+                    <i class="fa-solid fa-phone" style="color: var(--secondary);"></i>
+                    <div><strong>Alpa:</strong> <a href="tel:07404155862">07404 155862</a></div>
+                </div>
+                <div class="contact-box">
+                    <i class="fa-solid fa-phone" style="color: var(--secondary);"></i>
+                    <div><strong>Harisha:</strong> <a href="tel:07413877007">07413 877007</a></div>
+                </div>
             </div>
         </div>
 
         <!-- Google Drive Photo & Video Albums -->
         <div class="card">
-            <h2>📁 Daily Photo & Video Albums</h2>
-            <p>Click below to view and download full photo and video folders from each day of Mahotsav:</p>
+            <h2><i class="fa-solid fa-folder-open"></i> Daily Photo & Video Albums</h2>
+            <p>Click below to open and view the full high-resolution photo and video folders on Google Drive for each day of Mahotsav:</p>
+            
             <div class="album-buttons">
-                <a href="https://drive.google.com/drive/folders/1_KvBF8W4xC9iJoQNczRnsl39aTRQYzfQ" target="_blank" class="album-btn">
-                    📸 View Day 5 Album
+                <a href="https://drive.google.com/drive/folders/1_KvBF8W4xC9iJoQNczRnsl39aTRQYzfQ" target="_blank" rel="noopener noreferrer" class="album-btn">
+                    <i class="fa-brands fa-google-drive"></i>
+                    <span>View Day 5 Album</span>
                 </a>
-                <a href="https://drive.google.com/drive/folders/173hCJ-IKGGdJc2-9KhFnuna1SRadoNTZ" target="_blank" class="album-btn">
-                    📸 View Day 6 Album
+                <a href="https://drive.google.com/drive/folders/173hCJ-IKGGdJc2-9KhFnuna1SRadoNTZ" target="_blank" rel="noopener noreferrer" class="album-btn">
+                    <i class="fa-brands fa-google-drive"></i>
+                    <span>View Day 6 Album</span>
                 </a>
-                <a href="https://drive.google.com/drive/folders/1j303hIYipFmY0jgayp-zQa2xxPsN9Ti1" target="_blank" class="album-btn">
-                    📸 View Day 7 Album
+                <a href="https://drive.google.com/drive/folders/1j303hIYipFmY0jgayp-zQa2xxPsN9Ti1" target="_blank" rel="noopener noreferrer" class="album-btn">
+                    <i class="fa-brands fa-google-drive"></i>
+                    <span>View Day 7 Album</span>
                 </a>
             </div>
         </div>
 
         <!-- Photo Highlights Gallery -->
         <div class="card">
-            <h2>✨ Ganesh Utsav 2026 Highlights ✨</h2>
+            <h2><i class="fa-solid fa-images"></i> Ganesh Utsav 2026 Highlights</h2>
             <p>Moments of devotion, celebration, and community togetherness from our Ganesh Mahotsav celebrations. Click on any photo to expand.</p>
             
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="WhatsApp Image 2026-09-16 at 18.11.12.jpeg" alt="Ganesh Utsav Highlight 1">
+                <div class="gallery-item" onclick="openLightbox('WhatsApp Image 2026-09-16 at 18.11.12.jpeg', 'Ganesh Utsav Highlight - Day 1')">
+                    <img src="WhatsApp Image 2026-09-16 at 18.11.12.jpeg" alt="Ganesh Utsav Highlight 1" onerror="this.src='https://placehold.co/600x450/d9381e/ffffff?text=Ganesh+Utsav+Highlight+1'">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="WhatsApp Image 2026-09-17 at 18.44.07.jpeg" alt="Ganesh Utsav Highlight 2">
+                <div class="gallery-item" onclick="openLightbox('WhatsApp Image 2026-09-17 at 18.44.07.jpeg', 'Ganesh Utsav Highlight - Day 2')">
+                    <img src="WhatsApp Image 2026-09-17 at 18.44.07.jpeg" alt="Ganesh Utsav Highlight 2" onerror="this.src='https://placehold.co/600x450/d9381e/ffffff?text=Ganesh+Utsav+Highlight+2'">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="WhatsApp Image 2026-09-19 at 09.53.32.jpeg" alt="Ganesh Utsav Highlight 3">
+                <div class="gallery-item" onclick="openLightbox('WhatsApp Image 2026-09-19 at 09.53.32.jpeg', 'Ganesh Utsav Highlight - Day 3')">
+                    <img src="WhatsApp Image 2026-09-19 at 09.53.32.jpeg" alt="Ganesh Utsav Highlight 3" onerror="this.src='https://placehold.co/600x450/d9381e/ffffff?text=Ganesh+Utsav+Highlight+3'">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="WhatsApp Image 2026-09-21 at 00.38.23.jpeg" alt="Ganesh Utsav Highlight 4">
+                <div class="gallery-item" onclick="openLightbox('WhatsApp Image 2026-09-21 at 00.38.23.jpeg', 'Ganesh Utsav Highlight - Day 4')">
+                    <img src="WhatsApp Image 2026-09-21 at 00.38.23.jpeg" alt="Ganesh Utsav Highlight 4" onerror="this.src='https://placehold.co/600x450/d9381e/ffffff?text=Ganesh+Utsav+Highlight+4'">
+                    <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                 </div>
             </div>
         </div>
 
         <!-- Sponsor Appreciation -->
         <div class="card">
-            <h2>Thank You to Our Sponsors ✨</h2>
+            <h2><i class="fa-solid fa-heart"></i> Thank You to Our Sponsors ✨</h2>
             <p>As we prepare to celebrate Ganesh Mahotsav 2026, Gajanan Yuvak Mandal would like to express our deepest gratitude to every sponsor who has supported us and believed in our vision.</p>
             <p>Your generosity and contribution have played an important part in bringing this beautiful celebration together. This Mahotsav is not just an event — it is about faith, culture, unity, and bringing our community together. 🕉️</p>
             <p>May Ganpati Bappa bless you, your families, and your businesses with happiness, prosperity, and success. 🌺</p>
-            <p><strong>From the entire Gajanan Yuvak Mandal family — THANK YOU! 🙏</strong></p>
+            <p style="color: var(--primary); font-weight: 700; margin-top: 1rem; font-size: 1.1rem;">From the entire Gajanan Yuvak Mandal family — THANK YOU! 🙏</p>
         </div>
 
     </div>
 
     <!-- Lightbox Pop-up Modal -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" class="lightbox-img" src="" alt="Expanded View">
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightboxForce()">&times;</span>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="Expanded View">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
     </div>
 
     <footer>
-        <p>Ganpati Bappa Morya! 🙏❤️</p>
+        <p class="blessing">Ganpati Bappa Morya! 🙏❤️</p>
         <p>&copy; 2026 Gajanan Yuvak Mandal. All rights reserved.</p>
     </footer>
 
     <script>
-        function openLightbox(element) {
-            const imgSrc = element.querySelector('img').src;
-            document.getElementById('lightbox-img').src = imgSrc;
-            document.getElementById('lightbox').style.display = 'flex';
+        // Open Lightbox with smooth overlay
+        function openLightbox(imgSrc, captionText) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = imgSrc;
+            lightboxCaption.textContent = captionText || '';
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         }
 
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
+        // Close Lightbox when clicking backdrop
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox') {
+                closeLightboxForce();
+            }
         }
+
+        // Direct Close Lightbox
+        function closeLightboxForce() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close on ESC key press
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightboxForce();
+            }
+        });
     </script>
 </body>
 </html>
+```
+
+### What was fixed & improved:
+1. **Removed Invisible Unicode Characters:** Cleaned out non-breaking space issues (`&nbsp;` / hidden unicode whitespace) from the HTML syntax so browsers compile and display every block seamlessly.
+2. **Prominent Google Drive Links:** Formatted the Day 5, Day 6, and Day 7 Google Drive links into distinct call-to-action buttons with hover animations and icons.
+3. **Enhanced Lightbox Modal:** Added keyboard shortcut handling (`Esc` key to close), fixed layout jumping by freezing scrollbars during modal view, and added image fallbacks.
