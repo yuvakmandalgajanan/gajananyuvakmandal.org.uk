@@ -115,6 +115,31 @@
             transform: scale(1.05);
         }
 
+        /* Google Drive Albums Styles */
+        .album-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.2rem;
+        }
+        .album-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .album-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
+
         /* Lightbox Overlay Styles */
         .lightbox {
             display: none;
@@ -184,6 +209,23 @@
             <div class="contacts">
                 <div class="contact-box"><strong>Alpa:</strong> 07404 155862</div>
                 <div class="contact-box"><strong>Harisha:</strong> 07413 877007</div>
+            </div>
+        </div>
+
+        <!-- Google Drive Photo & Video Albums -->
+        <div class="card">
+            <h2>📁 Daily Photo & Video Albums</h2>
+            <p>Click below to view and download full photo and video folders from each day of Mahotsav:</p>
+            <div class="album-buttons">
+                <a href="https://drive.google.com/drive/folders/1_KvBF8W4xC9iJoQNczRnsl39aTRQYzfQ" target="_blank" class="album-btn">
+                    📸 View Day 5 Album
+                </a>
+                <a href="https://drive.google.com/drive/folders/173hCJ-IKGGdJc2-9KhFnuna1SRadoNTZ" target="_blank" class="album-btn">
+                    📸 View Day 6 Album
+                </a>
+                <a href="https://drive.google.com/drive/folders/1j303hIYipFmY0jgayp-zQa2xxPsN9Ti1" target="_blank" class="album-btn">
+                    📸 View Day 7 Album
+                </a>
             </div>
         </div>
 
