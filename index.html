@@ -90,6 +90,30 @@
             border-radius: 8px;
             border-left: 4px solid var(--secondary);
         }
+
+        /* Gallery Grid Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
         footer {
             text-align: center;
             padding: 2rem 1rem;
@@ -100,7 +124,7 @@
     </style>
 </head>
 <body>
-<header>
+    <header>
         <div class="header-content">
             <img src="logo.png" alt="Gajanan Yuvak Mandal Logo" class="logo">
             <div class="header-text">
@@ -111,6 +135,7 @@
             <img src="logo.png" alt="Gajanan Yuvak Mandal Logo" class="logo">
         </div>
     </header>
+
     <div class="container">
         
         <!-- Welcome & Event Info -->
@@ -128,6 +153,27 @@
             <div class="contacts">
                 <div class="contact-box"><strong>Alpa:</strong> 07404 155862</div>
                 <div class="contact-box"><strong>Harisha:</strong> 07413 877007</div>
+            </div>
+        </div>
+
+        <!-- Photo Highlights Gallery -->
+        <div class="card">
+            <h2>✨ Ganesh Utsav 2026 Highlights ✨</h2>
+            <p>Moments of devotion, celebration, and community togetherness from our Ganesh Mahotsav celebrations.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-09-16 at 18.11.12.jpeg" alt="Ganesh Utsav Highlight 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-09-17 at 18.44.07.jpeg" alt="Ganesh Utsav Highlight 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-09-19 at 09.53.32.jpeg" alt="Ganesh Utsav Highlight 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-09-21 at 00.38.23.jpeg" alt="Ganesh Utsav Highlight 4">
+                </div>
             </div>
         </div>
 
