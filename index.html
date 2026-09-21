@@ -102,6 +102,7 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
         .gallery-item img {
             width: 100%;
@@ -112,6 +113,36 @@
         }
         .gallery-item img:hover {
             transform: scale(1.05);
+        }
+
+        /* Lightbox Overlay Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
         }
 
         footer {
@@ -159,19 +190,19 @@
         <!-- Photo Highlights Gallery -->
         <div class="card">
             <h2>✨ Ganesh Utsav 2026 Highlights ✨</h2>
-            <p>Moments of devotion, celebration, and community togetherness from our Ganesh Mahotsav celebrations.</p>
+            <p>Moments of devotion, celebration, and community togetherness from our Ganesh Mahotsav celebrations. Click on any photo to expand.</p>
             
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="WhatsApp Image 2026-09-16 at 18.11.12.jpeg" alt="Ganesh Utsav Highlight 1">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="WhatsApp Image 2026-09-17 at 18.44.07.jpeg" alt="Ganesh Utsav Highlight 2">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="WhatsApp Image 2026-09-19 at 09.53.32.jpeg" alt="Ganesh Utsav Highlight 3">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="WhatsApp Image 2026-09-21 at 00.38.23.jpeg" alt="Ganesh Utsav Highlight 4">
                 </div>
             </div>
@@ -188,10 +219,27 @@
 
     </div>
 
+    <!-- Lightbox Pop-up Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-img" src="" alt="Expanded View">
+    </div>
+
     <footer>
         <p>Ganpati Bappa Morya! 🙏❤️</p>
         <p>&copy; 2026 Gajanan Yuvak Mandal. All rights reserved.</p>
     </footer>
 
+    <script>
+        function openLightbox(element) {
+            const imgSrc = element.querySelector('img').src;
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
